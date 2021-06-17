@@ -2,7 +2,7 @@ const models = require("../models");
 import { CacheSingleton } from '../cache/Cache';
 import { DataArrayNester } from '../helpers/DataArrayNester';
 import { IData, IExplorerItem, CostExplorerOutput } from '../typings';
-import ExplorerItem from '../helpers/ExplorerItem';
+import ExplorerItem from './ExplorerItem';
 import CostExplorerQueryBuilder from "./CostExplorerQueryBuilder"; 
 import Client from '../dao/Client';
 
