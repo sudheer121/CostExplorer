@@ -33,7 +33,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const Controller_1 = __importStar(require("../typings/Controller"));
 const QueryParser_1 = __importDefault(require("../helpers/QueryParser"));
-const models = require("../models");
 const Cache_1 = require("../cache/Cache");
 const CostExplorer_1 = __importDefault(require("../services/CostExplorer"));
 class ExplorerController extends Controller_1.default {
@@ -82,59 +81,3 @@ class ExplorerController extends Controller_1.default {
     }
 }
 exports.default = ExplorerController;
-// interface queryObject {
-//     id : number 
-// }
-// class ExplorerQueryBuilder {
-//     private clientQueryObject : queryObject | {};
-//     private projectQueryObject : queryObject | {};
-//     private query : any; 
-//     constructor(client_id : Array<number>, cost_type_id : Array<number>, project_id : Array<number>){
-//         this.clientQueryObject = (client_id.length) ? {
-//             id : client_id 
-//         } : {}; 
-//         this.projectQueryObject = (project_id.length) ? {
-//             id : project_id 
-//         } : {}; 
-//         console.log(this.clientQueryObject, this.projectQueryObject, cost_type_id); 
-//         this.query = {
-//             where :  this.clientQueryObject,
-//             attributes : ['id','amount','name','type'], 
-//             include : [{
-//                 model : models.Project,
-//                 as : 'children', 
-//                 attributes : ['id','amount',['title','name'],'type'], 
-//                 where : this.projectQueryObject,
-//                 include : [{
-//                     attributes : ['amount', ['cost_type_id','id']],
-//                     model : models.Cost,
-//                     as : "children",  
-//                     where :  {
-//                         'cost_type_id' :  cost_type_id 
-//                     }
-//                 }],
-//             }],
-//             order : [
-//                 ['id', 'ASC'], 
-//                 [ { model : models.Project, as : "children" }, 'id', 'ASC'] 
-//             ],
-//         }
-//     }
-//     public async getQueryResult() : Promise<Array<IExplorerItem>> {
-//         let result = await models.Client.findAll(this.query);
-//         result = result.map((node : any) =>  node.get({ plain : true})); 
-//         result = result.map((client : any)=>{
-//             client.children = client.children.map((project : any)=>{
-//                 let nesterobj : DataArrayNester = new DataArrayNester(CacheSingleton.getCostTypeGraph(),project.children)
-//                 project.children = nesterobj.getNesting().children;
-//                 return project; 
-//             })
-//             return client 
-//         })
-//         result = result.map((client : any) =>{
-//             let explorerObject= new ExplorerItem(client); 
-//             return explorerObject.getNesting(); 
-//         })
-//         return result;
-//     }
-// }

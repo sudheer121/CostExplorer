@@ -15,7 +15,6 @@ class DataArrayNester {
         });
     }
     nesterDFS(node) {
-        //console.log("On node", node); 
         let currentNode = {
             id: node,
             children: []

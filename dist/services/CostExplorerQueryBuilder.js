@@ -33,7 +33,7 @@ class CostExplorerQueryBuilder {
         };
     }
     getQuery() {
-        return this.query();
+        return this.query;
     }
 }
 exports.default = CostExplorerQueryBuilder;

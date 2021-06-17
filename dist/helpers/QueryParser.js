@@ -1,8 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-class Queryparser {
+class QueryParser {
     static parseToArray(data) {
-        //return [parseInt(data)]; 
         if (typeof (data) == "string") {
             return [parseInt(data)];
         }
@@ -12,4 +11,4 @@ class Queryparser {
         return [];
     }
 }
-exports.default = Queryparser;
+exports.default = QueryParser;
