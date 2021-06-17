@@ -1,4 +1,5 @@
-<h3 align="center">Cost Explorer</h3>
+## Cost Explorer 
+ 
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
@@ -14,6 +15,7 @@
         <ul><a href="#caching"> Caching </a></ul>
         <ul><a href="#data-types-and-interfaces"> Data Types and Interfaces </a></ul>
     </li>
+    <li><a href="#api-testing">API Testing</a></li>
   </ol>
 </details>
 
@@ -23,6 +25,10 @@
 The project is build using NodeJS in Typescript. 
 The web framework used is Express.
 Data ORM used is Sequelize. 
+1. Typescript is used because it is easier to understand as types are attached to each variable, also
+helps catch most bugs at compiletime
+2. Sequelize ORM is used because it has good support for features like eager loading, nested loading, 
+establishing relations between data and relational models. 
 
 ## Prerequisites
 
@@ -85,7 +91,7 @@ Before the server starts, it caches the `CostTypes` table from database, it conv
 Custom Data Types and Interfaces can be viewed at `./src/typings/index.d.ts`. 
 This alse has the interfaces `CostExplorerOutput` and `ExplorerItem` as specified. 
 
-Other than the provided interface the project uses these interfaces. 
+Other than the provided interfaces the project uses commonly these interfaces. 
 
 1. IGraphNode 
 > Represents a graph node, should have `id` and `parent id`
@@ -94,5 +100,9 @@ Other than the provided interface the project uses these interfaces.
 > Represents any data and should have `id` attribute
 
 3. INest 
-> Represents IDATA in nested form, `ExplorerItem` is a specific form of `INest` 
+> Represents IData in nested form, `ExplorerItem` is a specific form of `INest` 
 
+## API testing
+```
+Postman documentation will be added in sometime 
+```
